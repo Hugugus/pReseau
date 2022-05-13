@@ -8,15 +8,12 @@
  * Contributors:
  *     Bruno Quoitin - initial API and implementation
  ******************************************************************************/
-package p;
+package reso.pReseau;
 
 import reso.common.AbstractApplication;
 import reso.ip.IPAddress;
 import reso.ip.IPHost;
 import reso.ip.IPLayer;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class App
@@ -45,8 +42,8 @@ public class App
     public void start()
     throws Exception {
         //ip.addListener(PingPongProtocol.IP_PROTO_PINGPONG, new PingPongProtocol((IPHost) host));
-        PingPongProtocol p = new PingPongProtocol((IPHost) host);
-        ip.addListener(PingPongProtocol.IP_PROTO_PINGPONG, new PingPongProtocol((IPHost) host));
+        SRProtocol p = new SRProtocol((IPHost) host);
+        ip.addListener(SRProtocol.IP_PROTO_PINGPONG, new SRProtocol((IPHost) host));
         if(host.equals(Demo.host1))
         {
             p.init(ip, num);

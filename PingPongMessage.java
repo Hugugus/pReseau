@@ -8,7 +8,7 @@
  * Contributors:
  *     Bruno Quoitin - initial API and implementation
  ******************************************************************************/
-package p;
+package reso.pReseau;
 
 import reso.common.Message;
 
@@ -19,8 +19,14 @@ implements Message {
 
 
 
-	public PingPongMessage(int num) {
+	public PingPongMessage(int num)
+	{
 		this.num= num;
+	}
+
+	int getSq()
+	{
+		return num;
 	}
 	
 	public String toString() {
@@ -28,7 +34,8 @@ implements Message {
 	}
 
 	@Override
-	public int getByteLength() {
+	public int getByteLength()
+	{
 		// The ping-pong message carries a single 'int'
 		return Integer.SIZE / 8;
 	}

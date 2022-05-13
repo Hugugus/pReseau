@@ -8,7 +8,7 @@
  * Contributors:
  *     Bruno Quoitin - initial API and implementation
  ******************************************************************************/
-package p;
+package reso.pReseau;
 
 import reso.common.AbstractApplication;
 import reso.ip.IPHost;
@@ -26,7 +26,7 @@ public class AppReceiver
     }
 	
 	public void start() {
-    	ip.addListener(PingPongProtocol.IP_PROTO_PINGPONG, new PingPongProtocol((IPHost) host));
+    	ip.addListener(SRProtocol.IP_PROTO_PINGPONG, new SRProtocol((IPHost) host));
     }
 	
 	public void stop() {}
