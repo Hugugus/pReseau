@@ -39,7 +39,7 @@ public class SRProtocol implements IPInterfaceListener {
 	static LocalDateTime init; // temps lors de l'envoi d'un segment de test
 	static LocalDateTime end; // temps lors de la reception de l'ack de test
 
-	static String num; // sauvegarde ce qu'il va falloir envoyé
+	static String num; // sauvegarde ce qu'il va falloir envoyer
 
 	static boolean first=true; // permet de savoir si on envoi le segment de test
 
@@ -48,7 +48,7 @@ public class SRProtocol implements IPInterfaceListener {
 
 
 	int count=0;// Permet verifier que les envois respectent la taille de la fenetre
-	int nano; // Sauvegarde le temps qu'il faut à un packet pour être envoyé et recevoir son ack
+	int nano; // Sauvegarde le temps qu'il faut à un segment pour être envoyé et recevoir son ack
 
 	//double alpha=0.125;
 
