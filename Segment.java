@@ -34,7 +34,8 @@ public class Segment extends PingPongMessage{
             public void run()
             {
                 try {
-                    System.out.println("\n Message renvoyé \n");
+                    SRProtocol.wSize=1;
+                    SRProtocol.slowS=true;
                     p.sendT(s,ip,true);
 
                 } catch (Exception e) {

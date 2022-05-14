@@ -22,7 +22,7 @@ public class App
 	
 	private IPLayer ip;
     private IPAddress dst;
-    private  int num=14528;
+    private  String num="524422526226272777228282822292929";
 
 
 
@@ -33,10 +33,6 @@ public class App
 
     }
 
-    void setMessage(int a)
-    {
-        num=a;
-    }
 
 
     public void start()
