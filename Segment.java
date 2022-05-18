@@ -20,10 +20,10 @@ public class Segment extends PingPongMessage{
     Timer t;
     TimerTask th;
 
-    public static int timerD=2;
+    public static long timerD=3;
 
     int cCount=0;
-    int cMax=3; // maximum d'annulation possible
+    static int cMax=3; // maximum d'annulation possible
     void bTimer(SRProtocol p, IPLayer ip) throws Exception
     {
         Segment s=this;
@@ -34,9 +34,12 @@ public class Segment extends PingPongMessage{
             public void run()
             {
                 try {
+                    System.out.println("<Timer expiré pour sq "+s.getSq()+" avec RTO : "+SRProtocol.RTO+ "ms -> "+(SRProtocol.RTO*2)+"ms >");
                     SRProtocol.wSize=1;
+                    SRProtocol.RTO=SRProtocol.RTO*2;
                     SRProtocol.slowS=true;
-                    p.sendT(s,ip,true);
+                    //$$
+                    // p.sendT(s,ip,true);
 
                 } catch (Exception e) {
                     throw new RuntimeException(e);
@@ -44,7 +47,7 @@ public class Segment extends PingPongMessage{
 
             }
         };
-        t.schedule(th,timerD*1000);
+        t.schedule(th,SRProtocol.RTO);
     }
 
     void sTimer()
@@ -53,7 +56,8 @@ public class Segment extends PingPongMessage{
         {
             t.cancel();
             th.cancel();
-            System.out.println(" Timer annulé pour "+this);
+            System.out.println("<Timer annulé pour sq "+this.getSq()+"et RTO = "+SRProtocol.RTO+"ms >");
+
         }
     }
 }
