@@ -62,7 +62,8 @@ public class SRProtocol implements IPInterfaceListener {
 
 	public void init(IPLayer ip,Object n) throws Exception // Initie l'envoi de segment
 	{
-		System.out.println("A envoyer "+n);
+		System.out.println("A envoyer "+n+"\n");
+
 		num= (String) n;
 		start();
 		first=true;
