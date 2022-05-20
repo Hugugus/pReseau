@@ -219,7 +219,7 @@ public class SRProtocol implements IPInterfaceListener {
 			ArrayList a = (ArrayList) checkingT.get(msg.getSq());
 			Segment s = (Segment) a.get(0);
 
-			if (!s.received)
+			if (!s.received) // Si ack du segment non reçu
 					{
 
 						resF--; // Permet de savoir le nombre elements restant

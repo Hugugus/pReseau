@@ -44,16 +44,13 @@ public class Segment extends PingPongMessage{
                     if(!received) {
                         repeat=true;
                         SRProtocol.RTO = SRProtocol.RTO * 2;
-                        //System.out.println("< Timer expiré "+sr.getTime()+"ms pour sq "+s.getSq()+"  RTO = "+SRProtocol.RTO+"ms >");
-                       // System.out.println("<Timer expiré pour sq " + s.getSq() + " avec RTO : " + (SRProtocol.RTO/2) + "ms -> " + SRProtocol.RTO  + "ms >");
                         System.out.println("< Timer expiré ("+sr.getTime()+"ms) pour seg="+s.getSeg()+" et sq "+s.getSq()+"et RTO : "+ (SRProtocol.RTO/2) + "ms -> " + SRProtocol.RTO +"ms >");
 
-                        //System.out.println("<Timer expiré pour sq " + s.getSq() + " avec RTO : " + (SRProtocol.RTO/2) + "ms -> " + SRProtocol.RTO  + "ms >");
+
                         timer = false;
                         SRProtocol.wSize = 1;
-                        //SRProtocol.RTO = SRProtocol.RTO * 2;
+
                         SRProtocol.slowS = true;
-                       // p.sendT(s, ip); // selective repeate
                     }
 
                 } catch (Exception e) {
@@ -73,10 +70,8 @@ public class Segment extends PingPongMessage{
             timer=false;
             t.cancel();
             th.cancel();
-            //System.out.println("<Timer expiré pour sq " + this.getSq() + " avec RTO : " + SRProtocol.RTO  + " >");
             System.out.println("< Timer annulé ("+sr.getTime()+"ms) pour seg= "+this.getSeg()+" et sq "+this.getSq()+" et RTO = "+SRProtocol.RTO+"ms >");
 
-            //System.out.println("< Timer annulé "+sr.getTime()+"ms pour sq "+this.getSq()+"et RTO = "+SRProtocol.RTO+"ms >");
         }
     }
 }
